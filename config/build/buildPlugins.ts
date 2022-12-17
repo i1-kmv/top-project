@@ -1,13 +1,15 @@
-import HTMLWebpackPlugin from "html-webpack-plugin";
-import webpack from "webpack";
-import {BuildOptions} from "./types/config";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import HTMLWebpackPlugin from 'html-webpack-plugin';
+import webpack from 'webpack';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { BuildOptions } from './types/config';
 
-export const buildPlugins = (options: BuildOptions):webpack.WebpackPluginInstance[] => {
-    const {paths, isDev} = options
+export const buildPlugins = (
+    options: BuildOptions,
+):webpack.WebpackPluginInstance[] => {
+    const { paths, isDev } = options;
     return [
         new HTMLWebpackPlugin({
-            template: paths.html
+            template: paths.html,
         }),
         new webpack.ProgressPlugin(),
         new MiniCssExtractPlugin({
@@ -18,5 +20,5 @@ export const buildPlugins = (options: BuildOptions):webpack.WebpackPluginInstanc
             __IS_DEV__: JSON.stringify(isDev),
         }),
         new webpack.HotModuleReplacementPlugin(),
-    ]
-}
+    ];
+};
