@@ -6,6 +6,9 @@ declare module '*.scss' {
     export = classNames;
 }
 
+declare module '*.png';
+declare module '*.jpg';
+declare module '*.jpeg';
 declare module '*.svg' {
     import React from 'react';
 
@@ -13,4 +16,4 @@ declare module '*.svg' {
     export default SVG;
 }
 
-declare const __IS__DEV: boolean; // чтобы в файлах ts не ругался на глобальные переменные из definePlugin
+declare const __IS_DEV__: boolean;
